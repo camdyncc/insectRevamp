@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Rotate();
+
     }
 
     void Move()

@@ -2248,7 +2248,7 @@ GameObject:
   - component: {fileID: 1614325451239206716}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2303,6 +2303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6aedbcded5ef5468227cb174d7e402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement_Speed: 3
+  gravity: 9.8
+  roation_Speed: 0.15
+  rotateDegreesPerSecond: 180
 --- !u!1 &7471790276943847113
 GameObject:
   m_ObjectHideFlags: 0
