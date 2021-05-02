@@ -15,7 +15,15 @@ public class Axis
     }
 
 
+public class AnimationTags
+{
+    public const string WALK_PARAMETER = "walk";
+    public const string JUMP_PARAMETER = "jump";
+    public const string ATTACK_PARAMETER = "attack";
+    public const string RUN_PARAMETER = "run";
+    public const string IDLE_PARAMETER = "idle";
 
+}
 
 
 

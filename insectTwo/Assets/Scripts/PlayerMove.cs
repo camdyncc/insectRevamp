@@ -2,35 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMove : MonoBehaviour
 {
 
 
     private CharacterController charController;
+    private CharacterAnimations playerAnimations;
 
     public float movement_Speed = 3f;
     public float gravity = 9.8f;
     public float roation_Speed = 0.15f;
     public float rotateDegreesPerSecond = 180f;
 
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
 
-
+    public bool isGrounded;
+    Rigidbody rb;
     // Start is called before the first frame update
     void Awake()
     {
         charController = GetComponent<CharacterController>();
+        playerAnimations = GetComponent<CharacterAnimations>();
+        rb = GetComponent<Rigidbody>();
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
 
 
-        
+
     }
 
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
 
     // Update is called once per frame
     void Update()
     {
         Move();
         Rotate();
-
+        AnimateWalk();
+        Jump();
+        
+       
     }
 
     void Move()
@@ -52,6 +68,13 @@ public class PlayerMove : MonoBehaviour
             charController.Move(moveDirection * movement_Speed * Time.deltaTime);
 
         }
+        else
+        {
+            // if no input to move character
+            charController.Move(Vector3.zero);
+        }
+
+        
 
     }
 
@@ -75,34 +98,64 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
+
+    void AnimateWalk()
+    {
+
+        if(charController.velocity.sqrMagnitude != 0f)
+        {
+            playerAnimations.Walk(true);
+              
+                    
+                        
+        } else
+        {
+            playerAnimations.Walk(false);
+          
+        }
+
+        
+
+
+    }
+
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+    }
