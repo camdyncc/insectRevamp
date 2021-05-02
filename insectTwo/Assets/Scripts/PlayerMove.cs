@@ -101,20 +101,22 @@ public class PlayerMove : MonoBehaviour
 
     void AnimateWalk()
     {
-
+        playerAnimations.Idle(true);
         if(charController.velocity.sqrMagnitude != 0f)
         {
             playerAnimations.Walk(true);
-              
-                    
-                        
+
+
+
         } else
         {
             playerAnimations.Walk(false);
           
+          
         }
+   
 
-        
+
 
 
     }

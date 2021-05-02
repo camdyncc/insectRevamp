@@ -24,6 +24,7 @@ public class PlayerAttackInput : MonoBehaviour
         if(Input.GetKey(KeyCode.K))
         {
             playerAnimation.Attack();
+            
           
             //if you are using two different attacks
           //  if(Random.Range(0, 2) > 0) {
