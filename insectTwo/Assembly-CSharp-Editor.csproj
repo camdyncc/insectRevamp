@@ -70,6 +70,15 @@
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
     <Compile Include="Assets\NatureStarterKit2\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedRidgeErodeTool.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\HeightFlow.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedSmoothSharpen.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\HydraulicErosion.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedTexture.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedHeight.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedErodeHeightTool.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedSmudge.cs" />
+    <Compile Include="Assets\RunSwimFlyTools\Editor\MaskedTerraceErosion.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

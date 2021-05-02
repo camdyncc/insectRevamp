@@ -29,9 +29,9 @@ public class CharacterAnimations : MonoBehaviour
         anim.SetBool(AnimationTags.RUN_PARAMETER, run);
     }
 
-    public void Jump(bool jump)
+    public void Jump()
     {
-        anim.SetBool(AnimationTags.JUMP_PARAMETER, jump);
+        anim.SetTrigger(AnimationTags.JUMP_PARAMETER);
 
     }
 
