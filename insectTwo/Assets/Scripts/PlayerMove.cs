@@ -11,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     private CharacterController charController;
     private CharacterAnimations playerAnimations;
 
-    public float movement_Speed = 3f;
+    public float movement_Speed = 99f;
     public float gravity = 9.8f;
     public float roation_Speed = 0.15f;
     public float rotateDegreesPerSecond = 180f;
@@ -58,6 +58,7 @@ public class PlayerMove : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
 
             charController.Move(moveDirection * movement_Speed * Time.deltaTime);
+            System.Diagnostics.Debug.WriteLine("test");
 
         }
         else if (Input.GetAxis(Axis.VERTICAL_AXIS) < 0)
@@ -126,8 +127,8 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
 
-            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
+            rb.AddForce(jump * jumpForce * Time.deltaTime, ForceMode.Impulse);
+            isGrounded = true;
         }
 
         
@@ -159,5 +160,5 @@ public class PlayerMove : MonoBehaviour
 
 
 
-    
-    }
+
+}

@@ -46,7 +46,7 @@ public class EnemyController : MonoBehaviour
         // enemy_Anim = GetComponent<EnemyAnimator>();
         navAgent = GetComponent<NavMeshAgent>();
 
-        target = GameObject.FindWithTag(Tags.PLAYER_TAG).transform;
+        target = GameObject.FindWithTag(Tags.PLAYER_TAG ).transform;
 
 
 
@@ -60,6 +60,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         enemy_State = EnemyState.PATROL;
+        SetNewRandomDestination();
         patrol_Timer = patrol_For_This_Time;
 
         //attack as soon as enemy reaches player
@@ -68,6 +69,8 @@ public class EnemyController : MonoBehaviour
         //memorize value of chase distance so we can put it back
         current_Chase_Distance = chase_Distance;
 
+        
+
 
 
     }
@@ -75,7 +78,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        System.Diagnostics.Debug.WriteLine("testing plZ");
         if (enemy_State == EnemyState.PATROL)
         {
             Patrol();
@@ -88,6 +91,11 @@ public class EnemyController : MonoBehaviour
 
         if (enemy_State == EnemyState.ATTACK)
         {
+            //make enemy enter attack state//
+            //targets the player
+
+            //stops targeting once player distance is > then the
+
             Attack();
         }
 
@@ -102,6 +110,8 @@ public class EnemyController : MonoBehaviour
         //allows nav agent to move
         navAgent.isStopped = false;
         navAgent.speed = walk_Speed;
+        SetNewRandomDestination();
+        System.Diagnostics.Debug.WriteLine("testing");
 
         patrol_Timer += Time.deltaTime;
 
@@ -127,7 +137,7 @@ public class EnemyController : MonoBehaviour
         {
             //enemy_Anim.Walk(false);
             enemy_State = EnemyState.CHASE;
-
+            
 
             //play audio of enemy spotting player
         }
